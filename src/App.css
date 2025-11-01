@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: kantipur;
+  src: url(fonts/Kantipur_Regular.otf);
+}
+
+#root {
+  text-align: center;
+}
+
+.slide,
+.fade,
+.motion {
+  --delay: 0;
+  --dir: 1;
+  --speed: 1;
+  --offset-x: 25;
+  --offset-y: 25;
+  --timing: ease-out;
+}
+
+.motion-reverse {
+  --dir: -1;
+}
+
+.delay-xs {
+  --delay: 0.1;
+}
+.delay-sm {
+  --delay: 0.2;
+}
+
+.delay-md {
+  --delay: 0.5;
+}
+.delay-lg {
+  --delay: 1;
+}
+
+.speed-xs {
+  --speed: 1;
+}
+.speed-sm {
+  --speed: 0.6;
+}
+.speed-md {
+  --speed: 0.4;
+}
+.speed-lg {
+  --speed: 0.2;
+}
+
+.slide-left {
+  animation: slide-left calc(var(--speed, 1) * 1s) var(--timing)
+    calc(var(--delay) * 1s);
+  animation-fill-mode: forwards;
+  transform: translateX(calc(var(--offset-x) * -1%));
+}
+
+.slide-right {
+  animation: slide-right calc(var(--speed, 1) * 1s) var(--timing)
+    calc(var(--delay) * 1s);
+  animation-fill-mode: forwards;
+  transform: translateX(calc(var(--offset-x) * 1%));
+}
+.slide-up {
+  animation: slide-up calc(var(--speed, 1) * 1s) var(--timing)
+    calc(var(--delay) * 1s);
+  animation-fill-mode: forwards;
+  transform: translateY(calc(var(--offset-y) * 1%));
+}
+.slide-down {
+  animation: slide-down calc(var(--speed, 1) * 1s) var(--timing)
+    calc(var(--delay) * 1s);
+  animation-fill-mode: forwards;
+  transform: translateY(calc(var(--offset-y) * -1%));
+}
+.fade-out {
+  animation: fade-out calc(var(--speed, 1) * 1s) var(--timing)
+    calc(var(--delay) * 1s);
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+.fade-in {
+  animation: fade-in calc(var(--speed, 1) * 1s) var(--timing)
+    calc(var(--delay) * 1s);
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.motion-pendulum {
+  transform-origin: top center;
+  animation: motion-pendulum calc(var(--speed, 1) * 1s) var(--timing);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slide-right {
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-left {
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-up {
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-down {
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes motion-pendulum {
+  from {
+    transform: rotate(calc(var(--dir) * -1deg));
+  }
+  to {
+    transform: rotate(calc(var(--dir) * 1deg));
+  }
+}
