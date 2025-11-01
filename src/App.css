@@ -97,6 +97,12 @@
   animation-direction: alternate;
 }
 
+.marquee {
+  animation: slide-left 10s linear;
+  animation-iteration-count: infinite;
+  transform: translateX(calc(100% * var(--dir)));
+}
+
 @keyframes slide-right {
   to {
     transform: translateX(0%);

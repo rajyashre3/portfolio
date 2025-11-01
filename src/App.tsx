@@ -18,10 +18,12 @@ import links from "./constants/links";
 
 import tools from "./constants/tools";
 import experience from "./constants/experience";
+import keySkills from "./constants/keyskills";
 
 import Resizer from "./components/common/resizer";
 import Video from "./components/common/video";
 import TimeLine from "./components/timeline";
+import Marquee from "./components/common/marquee";
 
 import Slide from "./components/wrappers/slide";
 import Fade from "./components/wrappers/fade";
@@ -41,7 +43,6 @@ function App() {
       player.current.setAttribute("width", "1200px");
       player.current.setAttribute("height", "951px");
       player.current.playbackRate = 0.25;
-      player.current?.play();
     }
   }, []);
 
@@ -107,9 +108,9 @@ function App() {
       className="relative duration-1000 transition-opacity opacity-0"
     >
       <div className="-z-40 absolute inset-0 background blur-[3px]" />
-      <div className="max-w-[1200px] mx-auto h-screen relative">
+      <div className="max-w-[1200px] mx-auto h-screen relative z-0 md:bg-none bg-[url(assets/paper-still.png)] bg-no-repeat bg-cover">
         <video
-          className="-z-10 absolute left-0 top-0 max-w-full mx-auto h-full object-cover"
+          className="-z-10 md:block hidden absolute left-0 top-0 max-w-full mx-auto h-full object-cover"
           ref={player}
           muted
           playsInline
@@ -118,7 +119,7 @@ function App() {
         >
           <source src={paperVideo} type="video/mp4"></source>
         </video>
-        <div className="relative">
+        <div className="relative z-999">
           <div className="translate-y-[30px] h-[40px] w-full bg-linear-to-r from-cyan-500 to-blue-500" />
           <div className="absolute w-[200px] left-1/2 -translate-x-1/2">
             <Resizer
@@ -144,7 +145,37 @@ function App() {
               <h3 className="md:text-3xl relative">Content Director</h3>
 
               <div className="relative">
-                <div className="absolute md:w-[250px] w-[120px] top-1/2 -translate-x-1/6 md:-translate-y-[calc(100%-50px)] -translate-y-[calc(100%-20px)]">
+                <div className="overflow-hidden relative h-5 bg-[linear-gradient(90deg,#FF6600,#FFD633,#FF6600)]">
+                  <div className="md:hidden block relative">
+                    <Marquee items={keySkills} height="20px" />
+                  </div>
+
+                  <div className="md:flex hidden justify-between items-center md:px-8 px-2">
+                    <ul className="flex w-max text-sm gap-x-8 justify-center items-center">
+                      {keySkills.map((item, i) => {
+                        return (
+                          <li
+                            style={{ lineHeight: "20px" }}
+                            key={i}
+                            className={`text-inherit ${
+                              i === 0 ? "" : "list-disc"
+                            }`}
+                          >
+                            {item}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <div
+                      className="hidden md:block"
+                      style={{ lineHeight: "20px" }}
+                    >
+                      DOB: २०५९/१२/१४
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute -z-10 md:w-[250px] w-[120px] top-1/2 -translate-x-1/6 md:-translate-y-[calc(100%-50px)] -translate-y-[calc(100%-20px)]">
                   <Resizer
                     aspectRatio={1 / 1}
                     render={(props) => {
@@ -160,33 +191,8 @@ function App() {
                     }}
                   />
                 </div>
-                <div className="z-40 absolute top-0 left-0 w-full h-full text-center">
-                  <div className="flex justify-between items-center md:px-8 px-2 md:-mt-[3px] -mt-[0.20em]">
-                    <ul className="flex text-sm gap-x-8 justify-center items-center">
-                      {[
-                        "Planning",
-                        "Scripting",
-                        "Directing",
-                        "Shooting",
-                        "Execution",
-                      ].map((text, i) => {
-                        return (
-                          <li
-                            key={i}
-                            className={`text-inherit ${
-                              i === 0 ? "" : "list-disc"
-                            }`}
-                          >
-                            {text}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    <div className="hidden md:block">DOB: २०५९/१२/१४</div>
-                  </div>
-                </div>
-                <div className="overflow-hidden after:absolute z-30 after:w-full after:h-full after:top-0 after:left-0 after:bg-linear-to-r after:from-[#FF6600] after:to-[#FFD633] after:translate-x-1/2 h-[20px] w-full bg-linear-to-r from-[#FFD633] to-[#FF6600] relative before:absolute before:w-full before:h-full before:top-0 before:left-0 before:bg-linear-to-r before:from-[#FFD633] before:to-[#FF6600] before:-translate-x-1/2" />
-                <div className="absolute md:w-[230px] w-[100px] top-1/2 right-0 translate-x-1/7 md:-translate-y-[calc(100%-40px)] -translate-y-[calc(100%-10px)]">
+
+                <div className="absolute -z-10 md:w-[230px] w-[100px] top-1/2 right-0 translate-x-1/7 md:-translate-y-[calc(100%-40px)] -translate-y-[calc(100%-10px)]">
                   <Resizer
                     aspectRatio={1 / 1}
                     render={(props) => {
@@ -222,7 +228,7 @@ function App() {
                           >
                             <div
                               style={{ ...props }}
-                              className="bg-[url(assets/rajji3.png)] bg-position-[bottom_center] bg-no-repeat bg-contain object-contain"
+                              className="bg-[url(assets/author.png)] bg-position-[bottom_center] bg-no-repeat bg-contain object-contain"
                             />
                             <p className="rounded-sm md:text-3xl text-2xl px-2 absolute -z-10 poppins-font w-max mx-auto bg-linear-to-r from-cyan-500 to-blue-500">
                               Ms. RajyaShree Shahi
@@ -233,7 +239,7 @@ function App() {
                     }}
                   />
                 </div>
-                <div className="pr-[40px] flex mt-auto flex-col gap-y-3.5">
+                <div className="flex mt-auto flex-col gap-y-3.5">
                   <h1 className="text-5xl mt-[100px] text-left">
                     About Me: Meet the editor behind lens
                   </h1>
@@ -385,7 +391,7 @@ function App() {
                               return (
                                 <VisiblilityGuard key={i}>
                                   <Fade direction="in" delay="lg">
-                                    <a href={link.url}>
+                                    <a href={link.url} target="_blank">
                                       <link.icon fontSize={"3em"} />
                                     </a>
                                   </Fade>
@@ -439,7 +445,7 @@ function App() {
               </div>
 
               {/* contact details */}
-              <div className="mt-14 relative text-left md:w-[600px] w-[300px] mx-auto my-12">
+              <div className="mt-14 relative text-left md:w-[600px] w-[300px] mx-auto my-12 mb-16">
                 <div className="sm:hidden block w-full">
                   <Resizer
                     aspectRatio={1 / 2}
