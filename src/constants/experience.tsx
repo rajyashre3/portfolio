@@ -49,7 +49,7 @@ export default [
       Digital Marketer & Graphic Designer – Ideal Study Abroad
     </h2>
     <p>
-      <strong>Timeline:</strong> Sept 2024 – August 2025
+      <strong>Timeline:</strong> Sept 2024 – Sept 2025
     </p>
 
     <h3 className="font-bold">The Challenge:</h3>
@@ -92,7 +92,7 @@ export default [
       Marketing Executive & Vendor Manager – B-Sawari
     </h2>
     <p>
-      <strong>Timeline:</strong> June 2024 – Sept 2024
+      <strong>Timeline:</strong> Dec 2023 – Jan 2024
     </p>
 
     <h3 className="font-bold">The Challenge:</h3>
@@ -121,7 +121,7 @@ export default [
   <article className="role">
     <h2 className="text-3xl mb-4">Content Creator – Simal Décor</h2>
     <p>
-      <strong>Timeline:</strong> May 2024 – June 2024
+      <strong>Timeline:</strong> Jan 2022 – Dec 2024
     </p>
 
     <h3 className="font-bold">The Challenge:</h3>
