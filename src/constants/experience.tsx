@@ -5,7 +5,8 @@ export default [
       <strong>Timeline:</strong> July 2025 – Present
     </p>
     <p>
-      <strong>Clients:</strong> Spalon, Healthy Herbs Nepal, Aeri
+      <strong>Clients:</strong> Spalon, Healthy Herbs Nepal, Aeri, Bond Drip
+      Coffee, Hamro Fucche
     </p>
 
     <h3 className="font-bold">The Challenge:</h3>
