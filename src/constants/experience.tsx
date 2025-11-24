@@ -93,7 +93,7 @@ export default [
       Marketing Executive & Vendor Manager – B-Sawari
     </h2>
     <p>
-      <strong>Timeline:</strong> Dec 2023 – Jan 2024
+      <strong>Timeline:</strong> July 2023 – Jan 2024
     </p>
 
     <h3 className="font-bold">The Challenge:</h3>
